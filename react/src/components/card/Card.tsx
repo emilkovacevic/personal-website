@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { LazyLoadImage } from 'react-lazy-load-image-component'
 import 'react-lazy-load-image-component/src/effects/blur.css'
 import 'react-lazy-load-image-component/src/effects/opacity.css'
@@ -5,15 +7,13 @@ import 'react-lazy-load-image-component/src/effects/opacity.css'
 import styled from 'styled-components'
 import { GoMarkGithub } from 'react-icons/go'
 import { AiOutlineEye } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
 
 const Article = styled.article`
   transform: translateX(0);
   animation: fadeIn 1s ease-in-out;
-  margin: 50px auto;
-  min-width: 250px;
-  max-width: 350px;
-  max-height: 380px;
+  width: 100%;
+  height: 100%;
+  max-height: 350px;
   border-radius: 1rem;
   border: 1px solid ${(props) => props.theme.card__border};
   overflow: hidden;
@@ -64,12 +64,8 @@ const Article = styled.article`
     z-index: 20;
     transition: all 0.25s ease;
   }
-  .img * {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: 10;
-    transition: all 0.25s ease;
+  .img {
+    object-fit: contain;
   }
   .content {
     z-index: 30;
@@ -140,25 +136,36 @@ const Article = styled.article`
 `
 
 type Props = {
+  id?: number
   title: string
   link: string
   code?: string
   image: string
 }
 
-function Card({ title, link, code, image }: Props) {
+function Content({ title, link, image, id, code }: Props) {
   return (
-    <Article className="card" tabIndex={0}>
+    <Article tabIndex={0}>
       <ul>
         {code && (
           <li>
-            <a href={code} target="_blank" rel="noopener noreferrer">
+            <a
+              href={code}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View project code on GitHub"
+            >
               <GoMarkGithub />
             </a>
           </li>
         )}
         <li>
-          <a href={link} target="_blank" rel="noopener noreferrer">
+          <a
+            href={link}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View project live"
+          >
             <AiOutlineEye />
           </a>
         </li>
@@ -168,24 +175,42 @@ function Card({ title, link, code, image }: Props) {
         <LazyLoadImage
           src={image}
           alt={title}
-          height={380}
-          width={450}
-          style={{ objectFit: 'cover' }}
           placeholderSrc="/images/tempImg.png"
         />
       </div>
-
       <div className="content">
-        <h2>
-          <Link to={title} target="_blank" rel="noopener noreferrer">
-            {title}
-          </Link>
-        </h2>
+        {id ? (
+          <h2>
+            <Link to={id.toString()}>{title}</Link>
+          </h2>
+        ) : (
+          <h2>
+            <a href={link} target="_blank" rel="noopener noreferrer">
+              {title}
+            </a>
+          </h2>
+        )}
       </div>
     </Article>
   )
 }
+
+function Card({ id, title, link, code, image }: Props) {
+  return id ? (
+    <Link to={id.toString()}>
+      <Content id={id} title={title} link={link} code={code} image={image} />
+    </Link>
+  ) : (
+    <Content title={title} link={link} code={code} image={image} />
+  )
+}
 Card.defaultProps = {
   code: null,
+  id: null,
 }
+Content.defaultProps = {
+  id: null,
+  code: null,
+}
+
 export default Card

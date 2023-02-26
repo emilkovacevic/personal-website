@@ -7,7 +7,7 @@
         "type": "web",
         "name": "Shopify clone",
         "tools": ["HTML", "Tailwind", "JavaScript"],
-        "description": "I created a replica of a Shoppify landing page using HTML, CSS, and JavaScript. I tried to replicate the original website's design.",
+        "description": "I created a replica of a Shoppify landing page using HTML, TailwindCSS, and JavaScript. I tried to replicate the original website's design.",
 
         "image": "https://firebasestorage.googleapis.com/v0/b/personal-website-a5de6.appspot.com/o/shoppify-cover-photo.png?alt=media&token=50e00139-4ed3-4c31-8459-208abc455815",
         "live_link": "https://shopify-clone-landing-page.vercel.app/",

@@ -17,7 +17,7 @@ import Blog from './pages/blog/Blog'
 
 import NotFound from './pages/notfound/NotFound'
 import DataProvider from './context/dataContext/dataContext'
-import Project from './dynamicRoutes/Project/Project'
+import ProjectDetails from './dynamicRoutes/Project/ProjectDetails'
 
 function App() {
   const { theme, handleThemeSwitch } = useThemeSwitcher()
@@ -41,12 +41,12 @@ function App() {
               <div className="content-wrapper">
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/portfolio" element={<Projects />} />
-                  <Route path="/portfolio/:id" element={<Project />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/*" element={<NotFound />} />
+                  <Route path="about" element={<About />} />
+                  <Route path="portfolio" element={<Projects />} />
+                  <Route path="portfolio/:id" element={<ProjectDetails />} />
+                  <Route path="contact" element={<Contact />} />
+                  <Route path="blog" element={<Blog />} />
+                  <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>
             </Application>

@@ -14,7 +14,7 @@ function Blog() {
   if (isError) return <ErrorCard error="server error" />
   return (
     <Main data-aos="zoom-out-down">
-      <Headline title="My Blogs" />
+      <Headline title="Tehnical Blog Posts" />
       <div className="blogs">
         {data?.blogs?.length &&
           data.blogs

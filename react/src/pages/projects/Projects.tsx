@@ -18,7 +18,7 @@ function Portfolio() {
     setNavItem(e.currentTarget.innerText)
   }
 
-  if (isError) return <ErrorCard error="Connection Error" />
+  if (isError) return <ErrorCard error="Server Error" />
 
   return (
     <Main>
@@ -70,6 +70,7 @@ function Portfolio() {
                 <div className="projects">
                   {data?.projects?.map((project) => (
                     <Card
+                      id={project.id}
                       key={project.id}
                       title={project.name}
                       link={project.live_link}
@@ -85,6 +86,7 @@ function Portfolio() {
                     if (project.type === 'web') {
                       return (
                         <Card
+                          id={project.id}
                           key={project.id}
                           title={project.name}
                           link={project.live_link}
@@ -103,6 +105,7 @@ function Portfolio() {
                     if (project.type === '3d') {
                       return (
                         <Card
+                          id={project.id}
                           key={project.id}
                           title={project.name}
                           link={project.live_link}

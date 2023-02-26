@@ -14,6 +14,7 @@ interface Project {
   live_link: string
   code_link: string
   image: string
+  tools: Array<string>
   blurhash: string
   description: string
 }

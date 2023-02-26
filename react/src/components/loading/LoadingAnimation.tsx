@@ -7,9 +7,6 @@ const Container = styled.div`
   justify-content: center;
 
   .loading-text {
-    .space {
-      padding-right: 1em;
-    }
     .char {
       opacity: 0;
       animation: loading-text 2s infinite ease-in-out;
@@ -35,12 +32,6 @@ const Container = styled.div`
       }
       &:nth-child(7) {
         animation-delay: 1.5s;
-      }
-      &:nth-child(8) {
-        animation-delay: 1.6s;
-      }
-      &:nth-child(9) {
-        animation-delay: 1.7s;
       }
     }
   }
@@ -80,9 +71,7 @@ function LoadingAnimation() {
         <span className="char">d</span>
         <span className="char">i</span>
         <span className="char">n</span>
-        <span className="char space">g</span>
-        <span className="char">3</span>
-        <span className="char">D</span>
+        <span className="char">g</span>
       </h2>
     </Container>
   )
