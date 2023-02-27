@@ -16,6 +16,9 @@ export const AppWrapper = styled.div`
 `
 export const Application = styled.div`
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: ${(props) => props.theme.page__background};
   background-image: ${(props) => props.theme.page__background_linear_gradient};
 `

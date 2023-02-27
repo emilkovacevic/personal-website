@@ -18,23 +18,31 @@ const Main = styled.main`
 
   div {
     padding: 20px;
+    border-radius: 10px;
     background-color: #f7f7f7;
   }
 
-  div div {
-    display: flex;
-    justify-content: space-between;
-  }
   p {
     line-height: 1.5;
   }
 
-  .buttons {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
+  ul {
+    list-style-position: inside;
+    li {
+      margin-bottom: 10px;
+    }
   }
 
+  .tools {
+    display: block;
+    h2 {
+      margin-bottom: 20px;
+    }
+  }
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
   a {
     margin-left: 10px;
     display: inline-block;
@@ -48,6 +56,16 @@ const Main = styled.main`
 
   a:hover {
     background-color: #0069d9;
+  }
+  @media screen and (min-width: 768px) {
+    div div {
+      display: flex;
+      justify-content: space-between;
+    }
+    .buttons {
+      justify-content: flex-end;
+      align-items: flex-end;
+    }
   }
 `
 
@@ -73,12 +91,14 @@ function ProjectDetails() {
                 <p>{project.description}</p>
               </div>
               <div>
-                <h3>Tools:</h3>
-                <ul>
-                  {project.tools.map((tool) => (
-                    <li key={tool}>{tool}</li>
-                  ))}
-                </ul>
+                <div className="tools">
+                  <h2>Tools</h2>
+                  <ul>
+                    {project.tools.map((tool) => (
+                      <li key={tool}>{tool}</li>
+                    ))}
+                  </ul>
+                </div>
                 <div className="buttons">
                   <a href={project.live_link} target="_blank" rel="noreferrer">
                     Live Link

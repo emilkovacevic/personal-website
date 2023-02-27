@@ -134,30 +134,12 @@ function Info() {
               <span className="table-value">{data?.about?.surname}</span>
             </td>
           </tr>
-          <tr>
-            <th>
-              <span className="table-key">Email:</span>
-            </th>
-            <td>
-              <span className="table-value">
-                <a href={`mailto:${data?.about?.email}`}>
-                  {data?.about?.email}
-                </a>
-              </span>
-            </td>
-            <th>
-              <span className="table-key">Phone number:</span>
-            </th>
-            <td>
-              <span className="table-value">
-                <a href={`tel:${data?.about?.tel}`}>{data?.about?.tel}</a>
-              </span>
-            </td>
-          </tr>
         </tbody>
       </table>
       <div className="download">
-        <a href={data?.about?.cv}>Download CV</a>
+        <a href={data?.about?.cv} download>
+          Download CV
+        </a>
       </div>
     </Table>
   )

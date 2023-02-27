@@ -12,8 +12,7 @@ const Article = styled.article`
   transform: translateX(0);
   animation: fadeIn 1s ease-in-out;
   width: 100%;
-  height: 100%;
-  max-height: 350px;
+  height: 350px;
   border-radius: 1rem;
   border: 1px solid ${(props) => props.theme.card__border};
   overflow: hidden;

@@ -18,6 +18,7 @@ import Blog from './pages/blog/Blog'
 import NotFound from './pages/notfound/NotFound'
 import DataProvider from './context/dataContext/dataContext'
 import ProjectDetails from './dynamicRoutes/Project/ProjectDetails'
+import getCurrentYear from './utils/getDate'
 
 function App() {
   const { theme, handleThemeSwitch } = useThemeSwitcher()
@@ -49,6 +50,14 @@ function App() {
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </div>
+              <p
+                style={{
+                  textAlign: 'center',
+                  padding: '20px',
+                }}
+              >
+                &copy; Emil Kovacevic {getCurrentYear()}
+              </p>
             </Application>
           </AppWrapper>
         </BrowserRouter>
