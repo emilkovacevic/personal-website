@@ -62,6 +62,7 @@ function App() {
                 style={{
                   textAlign: 'center',
                   padding: '20px',
+                  color: '#006dc6',
                 }}
               >
                 &copy; Emil Kovacevic {getCurrentYear()}
