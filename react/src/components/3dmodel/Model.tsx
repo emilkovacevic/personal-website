@@ -147,7 +147,7 @@ type GLTFResult = GLTF & {
   }
 }
 
-export function Model(props: JSX.IntrinsicElements['group']) {
+function Model(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/pc_table.glb') as GLTFResult
   const [lamp, setLamp] = useState(false)
   const handleLamp = () => {
@@ -992,3 +992,4 @@ export function Model(props: JSX.IntrinsicElements['group']) {
 }
 
 useGLTF.preload('/pc_table.glb')
+export default Model

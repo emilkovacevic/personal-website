@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import styled from 'styled-components'
 import { DataContext } from '../../context/dataContext/dataContext'
 
@@ -68,8 +68,11 @@ const Main = styled.main`
     }
   }
 `
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+interface ProjectDetailsProps {}
 
 function ProjectDetails() {
+  const navigate = useNavigate()
   const { data, isError, loading } = useContext(DataContext)
   const params = useParams()
   const { id } = params
@@ -79,42 +82,46 @@ function ProjectDetails() {
 
   if (isError) return <div>Error</div>
 
-  return (
-    <Main>
-      {data?.projects?.map((project) => {
-        if (project?.id === projectId) {
-          return (
-            <div key={project.id}>
-              <h1>{project.name}</h1>
-              <img src={project.image} alt={project.name} />
-              <div>
-                <p>{project.description}</p>
-              </div>
-              <div>
-                <div className="tools">
-                  <h2>Tools</h2>
-                  <ul>
-                    {project.tools.map((tool) => (
-                      <li key={tool}>{tool}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="buttons">
-                  <a href={project.live_link} target="_blank" rel="noreferrer">
-                    Live Link
-                  </a>
-                  <a href={project.code_link} target="_blank" rel="noreferrer">
-                    Code Link
-                  </a>
-                </div>
-              </div>
+  let projectFound = false
+  let projectDetails = null
+  data?.projects?.forEach((project) => {
+    if (project?.id === projectId) {
+      projectFound = true
+      projectDetails = (
+        <div key={project.id}>
+          <h1>{project.name}</h1>
+          <img src={project.image} alt={project.name} />
+          <div>
+            <p>{project.description}</p>
+          </div>
+          <div>
+            <div className="tools">
+              <h2>Tools</h2>
+              <ul>
+                {project.tools.map((tool) => (
+                  <li key={tool}>{tool}</li>
+                ))}
+              </ul>
             </div>
-          )
-        }
-        return null
-      })}
-    </Main>
-  )
+            <div className="buttons">
+              <a href={project.live_link} target="_blank" rel="noreferrer">
+                Live Link
+              </a>
+              <a href={project.code_link} target="_blank" rel="noreferrer">
+                Code Link
+              </a>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  })
+
+  if (!projectFound) {
+    return navigate('/404')
+  }
+
+  return <Main>{projectDetails}</Main>
 }
 
-export default ProjectDetails
+export default ProjectDetails as React.FC<ProjectDetailsProps>

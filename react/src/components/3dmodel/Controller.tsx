@@ -2,9 +2,9 @@ import React, { useRef } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Stage } from '@react-three/drei'
 import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
-
 import styled from 'styled-components'
-import { Model } from './Model'
+
+import Model from './Model'
 import LoadingAnimation from '../loading/LoadingAnimation'
 
 const Container = styled.div`

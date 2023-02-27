@@ -1,3 +1,4 @@
+import { Suspense, lazy } from 'react'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import AnimatedCursor from 'react-animated-cursor'
@@ -7,6 +8,8 @@ import useThemeSwitcher from './hooks/useTheme'
 import { darkTheme, lightTheme } from './theme_colors'
 import { AppWrapper, Application } from './app_styles'
 import ScrollToTop from './hooks/useScrollToTop'
+import getCurrentYear from './utils/getDate'
+
 import Navbar from './components/navbar/Navbar'
 
 import Home from './pages/home/Home'
@@ -17,8 +20,11 @@ import Blog from './pages/blog/Blog'
 
 import NotFound from './pages/notfound/NotFound'
 import DataProvider from './context/dataContext/dataContext'
-import ProjectDetails from './dynamicRoutes/Project/ProjectDetails'
-import getCurrentYear from './utils/getDate'
+import LoadingAnimation from './components/loading/LoadingAnimation'
+
+const ProjectDetails = lazy(
+  () => import('./dynamicRoutes/Project/ProjectDetails')
+)
 
 function App() {
   const { theme, handleThemeSwitch } = useThemeSwitcher()
@@ -39,17 +45,19 @@ function App() {
           <AppWrapper>
             <Application>
               <Navbar theme={theme} handleThemeSwitch={handleThemeSwitch} />
-              <div className="content-wrapper">
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="about" element={<About />} />
-                  <Route path="portfolio" element={<Projects />} />
-                  <Route path="portfolio/:id" element={<ProjectDetails />} />
-                  <Route path="contact" element={<Contact />} />
-                  <Route path="blog" element={<Blog />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </div>
+              <Suspense fallback={<LoadingAnimation />}>
+                <div className="content-wrapper">
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="about" element={<About />} />
+                    <Route path="portfolio" element={<Projects />} />
+                    <Route path="portfolio/:id" element={<ProjectDetails />} />
+                    <Route path="contact" element={<Contact />} />
+                    <Route path="blog" element={<Blog />} />
+                    <Route path="*" element={<NotFound />} />
+                  </Routes>
+                </div>
+              </Suspense>
               <p
                 style={{
                   textAlign: 'center',
