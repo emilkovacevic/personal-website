@@ -15,7 +15,7 @@ app.get('/data', (req, res) => {
 });
 
 // Route for server/files/dat2.pdf
-app.get('/pdf', (req, res) => {
+app.get('/cv', (req, res) => {
   res.sendFile(__dirname + '/files/CV__EMIL KOVACEVIC.pdf');
 });
 
