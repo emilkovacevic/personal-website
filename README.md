@@ -28,7 +28,6 @@ The Blog page contains articles that showcase my technical writing skills and so
 
 ## Running localy
 
-
 1. Clone this repository.
 2. Navigate to the project directory in your terminal.
 3. Run `npm install` to install all the required dependencies.
@@ -37,11 +36,12 @@ The Blog page contains articles that showcase my technical writing skills and so
 ## Technologies Used
 
 - Vite
-- React
+- React.js
 - Three.js
 - HTML5
 - Styled-Components
 - TypeScript
+- Express.js
 
 ## Credits
 
