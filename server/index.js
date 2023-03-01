@@ -1,22 +1,25 @@
 const express = require('express');
-const path = require('path');
+const cors = require('cors');
+
 const app = express();
-const port = process.env.PORT || 3000;
 
-app.use(express.static(path.join(__dirname, 'files')));
-
+app.use(cors());
+// Route for server/index.js
 app.get('/', (req, res) => {
-  res.send('This is a backend server for https://emilthedev.com/');
+  res.send('Hello from server/index.js!');
 });
 
-app.get('/api/cv/file.pdf', (req, res) => {
-  res.sendFile(path.join(__dirname, 'files', 'CV__EMIL KOVACEVIC.pdf'));
+// Route for server/files/data.json
+app.get('/data', (req, res) => {
+  res.sendFile(__dirname + '/files/data.json');
 });
 
-app.get('/api/data', (req, res) => {
-  res.sendFile(path.join(__dirname, 'files', 'data.json'));
+// Route for server/files/dat2.pdf
+app.get('/pdf', (req, res) => {
+  res.sendFile(__dirname + '/files/CV__EMIL KOVACEVIC.pdf');
 });
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+// Start the server
+app.listen(3000, () => {
+  console.log('Server is listening on port 3000');
 });

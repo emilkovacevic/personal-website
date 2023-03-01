@@ -95,12 +95,13 @@ const DataProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true)
   const [isError, setError] = useState<MyError>(null)
 
-  const API_URL = '/api/data.json'
+  const API_URL = 'https://personal-website-backend-five.vercel.app/data'
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(API_URL)
+        if (!response.ok) throw new Error('Could not fetch data from API')
         const jsonData = await response.json()
 
         setData(jsonData.record)

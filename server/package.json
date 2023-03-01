@@ -1,7 +1,7 @@
 {
-  "name": "vercel-testing",
+  "name": "vercel-website",
   "version": "1.0.0",
-  "description": "node express testing",
+  "description": "node express ",
   "main": "index.js",
   "engines": {
     "node": "18.x"
@@ -14,7 +14,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3",
-    "nodemon": "^2.0.15"
+    "cors": "^2.8.5",
+    "express": "^4.17.3"
   }
 }

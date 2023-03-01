@@ -137,8 +137,12 @@ function Info() {
         </tbody>
       </table>
       <div className="download">
-        <a href={data?.about?.cv} download>
-          Download CV
+        <a
+          href="https://personal-website-backend-five.vercel.app/pdf"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Open CV
         </a>
       </div>
     </Table>
