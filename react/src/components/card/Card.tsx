@@ -13,6 +13,7 @@ const Article = styled.article`
   animation: fadeIn 1s ease-in-out;
   width: 100%;
   height: 350px;
+  max-width: 350px;
   border-radius: 1rem;
   border: 1px solid ${(props) => props.theme.card__border};
   overflow: hidden;
@@ -22,6 +23,7 @@ const Article = styled.article`
   align-items: center;
   position: relative;
   cursor: pointer;
+  margin: auto !important;
   transition: all 0.25s ease;
   :hover,
   :focus {

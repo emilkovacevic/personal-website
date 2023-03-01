@@ -95,7 +95,7 @@ const DataProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(true)
   const [isError, setError] = useState<MyError>(null)
 
-  const API_URL = 'https://personal-website-backend-five.vercel.app/data'
+  const API_URL = 'https://emil-datahost.vercel.app/data'
 
   useEffect(() => {
     const fetchData = async () => {

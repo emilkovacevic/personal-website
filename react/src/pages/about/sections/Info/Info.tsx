@@ -138,7 +138,7 @@ function Info() {
       </table>
       <div className="download">
         <a
-          href="https://personal-website-backend-five.vercel.app/pdf"
+          href="https://emil-datahost.vercel.app/cv"
           target="_blank"
           rel="noreferrer"
         >
