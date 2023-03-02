@@ -94,7 +94,7 @@
               "data": "React, Redux, Storybook"
             },
             { "title": "Testing", "data": "Jest, React Testing Library" },
-            { "title": "Other", "data": [ "Node.js ",] }
+            { "title": "Other", "data": ["Node.js "] }
           ]
         },
         {
@@ -106,7 +106,7 @@
           "data": [
             {
               "title": "Servers",
-              "data": [ "Express, ", "Prizma "]
+              "data": ["Express, ", "Prizma "]
             },
             { "title": "Databases", "data": ["MongoDB, ", "PostgreSQL "] }
           ]
