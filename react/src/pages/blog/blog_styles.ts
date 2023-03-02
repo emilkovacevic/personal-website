@@ -6,7 +6,7 @@ const Main = styled.main`
     padding-bottom: 10em;
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   }
 `
 
