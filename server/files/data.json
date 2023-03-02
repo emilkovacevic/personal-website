@@ -86,7 +86,7 @@
           ]
         },
         {
-          "name": "Front-End JavaScript",
+          "name": "JavaScript / TypeScript",
           "data": [
             { "title": "JavaScript", "data": "ES6+" },
             {
@@ -94,7 +94,7 @@
               "data": "React, Redux, Storybook"
             },
             { "title": "Testing", "data": "Jest, React Testing Library" },
-            { "title": "TypeScript", "data": "TypeScript" }
+            { "title": "Other", "data": [ "Node.js ",] }
           ]
         },
         {
@@ -102,18 +102,18 @@
           "data": [{ "title": "Frameworks", "data": "Next.js, tRPC" }]
         },
         {
-          "name": "Back-End JavaScript",
+          "name": "Back-End JavaScript / Object-relational mapping",
           "data": [
             {
               "title": "Servers",
-              "data": ["Node.js, ", "Express, ", "Prizma "]
+              "data": [ "Express, ", "Prizma "]
             },
             { "title": "Databases", "data": ["MongoDB, ", "PostgreSQL "] }
           ]
         },
         {
           "name": "Version Control",
-          "data": [{ "title": "Git", "data": "Git" }]
+          "data": [{ "title": "Tools: ", "data": "Git" }]
         },
         {
           "name": "Other",
